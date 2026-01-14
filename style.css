@@ -1,0 +1,56 @@
+@view-transition { navigation: auto; }
+body { box-sizing: border-box; }
+.font-title { font-family: 'Baloo 2', cursive; }
+.font-body { font-family: 'Quicksand', sans-serif; }
+
+/* Animations */
+@keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(5deg); } }
+@keyframes bounce-in { 0% { transform: scale(0); opacity: 0; } 50% { transform: scale(1.1); } 100% { transform: scale(1); opacity: 1; } }
+@keyframes slide-up { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes confetti { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(100px) rotate(720deg); opacity: 0; } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 75% { transform: translateX(10px); } }
+
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-bounce-in { animation: bounce-in 0.5s ease-out forwards; }
+.animate-slide-up { animation: slide-up 0.4s ease-out forwards; }
+.animate-shake { animation: shake 0.5s ease-in-out; }
+
+/* Game Components */
+.btn-option { transition: all 0.2s; }
+.btn-option:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+.btn-option:active { transform: scale(0.98); }
+
+.slide { display: none; }
+.slide.active { display: flex; }
+.confetti-piece { position: absolute; animation: confetti 1.5s ease-out forwards; }
+.progress-bar { transition: width 0.5s ease-out; }
+
+/* Admin Button */
+#admin-btn {
+    position: fixed; top: 20px; right: 20px; z-index: 100;
+    background: rgba(0,0,0,0.3); color: white;
+    width: 40px; height: 40px; border-radius: 50%; border: none;
+    cursor: pointer; transition: 0.3s;
+    display: flex; align-items: center; justify-content: center;
+}
+#admin-btn:hover { background: rgba(0,0,0,0.8); transform: rotate(15deg); }
+
+/* Music Toggle (Dời sang trái để không đụng nút Admin) */
+#music-toggle {
+    position: fixed; top: 20px; left: 20px; z-index: 50;
+    background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(5px);
+    border: 2px solid rgba(255,255,255,0.5); border-radius: 50%;
+    width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.3s; font-size: 24px;
+}
+#music-toggle:hover { background: rgba(255, 255, 255, 0.5); transform: scale(1.1); }
+#music-toggle.muted { opacity: 0.6; background: rgba(0,0,0,0.2); }
+
+/* Leaderboard Styling */
+#leaderboard-body tr { border-bottom: 1px solid #f3f4f6; }
+#leaderboard-body tr:last-child { border-bottom: none; }
+#leaderboard-body tr:nth-child(1) td { font-weight: bold; color: #d97706; } /* Top 1 Gold */
+#leaderboard-body tr:nth-child(2) td { font-weight: bold; color: #4b5563; } /* Top 2 Silver */
+#leaderboard-body tr:nth-child(3) td { font-weight: bold; color: #92400e; } /* Top 3 Bronze */
+
+.bg-highlight { background-color: #fef3c7; } /* Highlight dòng của mình */
